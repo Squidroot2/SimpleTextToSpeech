@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SimpleTextToSpeech.ViewModels"
+             xmlns:component="clr-namespace:SimpleTextToSpeech.Components"
+             x:Class="SimpleTextToSpeech.Views.SettingsPage"
+             
+             x:DataType="viewmodel:SettingsViewModel"
+             Title="Settings">
+    <VerticalStackLayout
+        BackgroundColor="{x:StaticResource DarkBackground}"
+        Padding="10"
+        Spacing="5">
+        <component:OptionsSliderFrame
+            OptionNameText="Volume"
+            OptionValueText="{Binding CurrentVolumeString}"
+            OptionSliderMinimum="{Binding MinVolume}"
+            OptionSliderMaximum="{Binding MaxVolume}"
+            OptionSliderValue="{Binding CurrentVolume}"
+            OptionSliderDragCompletedCommand="{Binding SaveVolumeCommand}"/>
+
+        <component:OptionsSliderFrame
+            OptionNameText="Pitch"
+            OptionValueText="{Binding CurrentPitchString}"
+            OptionSliderMinimum="{Binding MinPitch}"
+            OptionSliderMaximum="{Binding MaxPitch}"
+            OptionSliderValue="{Binding CurrentPitch}"
+            OptionSliderDragCompletedCommand="{Binding SavePitchCommand}"/>
+
+
+
+        <!--<Frame>
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Label Text="Volume"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                        />
+
+                <Label Text="{Binding CurrentVolumeString}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center"/>
+
+                <Slider Value="{Binding CurrentVolume}"
+                        Minimum="{Binding MinVolume}"
+                        Maximum="{Binding MaxVolume}"
+                        HorizontalOptions="EndAndExpand"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        DragCompletedCommand="{Binding SaveVolumeCommand}"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame>
+            <Grid>
+                <Label Text="Pitch"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+
+                <Label Text="{Binding CurrentPitchString}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center"/>
+
+                <Slider Value="{Binding CurrentPitch}"
+                    Minimum="{Binding MinPitch}"
+                    Maximum="{Binding MaxPitch}"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    DragCompletedCommand="{Binding SavePitchCommand}"/>
+            </Grid>
+        </Frame>-->
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:SimpleTextToSpeech"
+             xmlns:viewmodel="clr-namespace:SimpleTextToSpeech.ViewModels"
+             x:Class="SimpleTextToSpeech.Views.MainPage"
+             x:DataType="viewmodel:MainViewModel"
+             Shell.NavBarIsVisible="False">
+    <Grid
+        ColumnDefinitions="*,Auto"
+        RowDefinitions="*,Auto"
+        Padding="50"
+        ColumnSpacing="80"
+        RowSpacing="10"
+        BackgroundColor="{x:StaticResource DarkBackground}"
+        >
+        
+        <Editor Text="{Binding Text}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Placeholder="Put the Text you want to say here"
+                PlaceholderColor="Gray"
+                Keyboard="Text"
+                BackgroundColor="Black"
+                TextColor="White"/>
+
+
+        <Button Text="Speak"
+                FontSize="24"
+                Grid.Row="1"
+                Grid.Column="0"
+                IsEnabled="{Binding TextNotEmpty}"
+                Command="{Binding PlayTextCommand}"/>
+
+        <Button Text="🔧"
+                FontSize="24"
+                Grid.Column="1"
+                Grid.Row="1"
+                Command="{Binding GoToSettingsCommand}"/>
+
+    </Grid>
+
+</ContentPage>

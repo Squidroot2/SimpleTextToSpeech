@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleTextToSpeech.Components.OptionsSliderFrame"
+             x:Name="this">
+    <Grid
+            RowDefinitions="*">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition x:Name="ValueColumn" Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="OptionName"
+               Text="{Binding Source={x:Reference this}, Path=OptionNameText}"
+               Grid.Column="0"/>
+        <Label x:Name="OptionValue"
+               Text="{Binding Source={x:Reference this}, Path=OptionValueText}"
+               HorizontalTextAlignment="End"
+               Grid.Column="1"/>
+        <Slider x:Name="OptionSlider"
+               Minimum="{Binding Source={x:Reference this}, Path=OptionSliderMinimum}"
+               Maximum="{Binding Source={x:Reference this}, Path=OptionSliderMaximum}"
+               Value="{Binding Source={x:Reference this}, Path=OptionSliderValue}"
+               DragCompletedCommand="{Binding Source={x:Reference this}, Path=OptionSliderDragCompletedCommand}"
+               Grid.Column="2"/>
+
+    </Grid>
+</Frame>
